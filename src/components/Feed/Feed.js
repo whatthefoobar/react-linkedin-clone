@@ -17,6 +17,7 @@ const Feed = () => {
   const user = useSelector(selectUser);
   const [input, setInput] = useState('');
   const [posts, setPosts] = useState([]);
+  // console.log(user);
 
   useEffect(() => {
     db.collection('posts')
@@ -38,7 +39,7 @@ const Feed = () => {
       name: user.displayName,
       description: user.email,
       message: input,
-      photoUrl: user.photoUrl || '',
+      photoUrl: user.photoURL || '',
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     });
     setInput('');
@@ -71,13 +72,14 @@ const Feed = () => {
           />
         </div>
       </div>
-      {/* Post */}
+      {/* Test Post */}
       <Post
         name="Judy Doe"
         description="big bish"
         message="I am the big bish in town"
         photoUrl="https://www.whatsappimages.in/wp-content/uploads/2022/01/Girl-DP.jpg"
       />
+      {console.log(posts)}
       {/* Posts */}
       <FlipMove>
         {posts.map(({ id, data: { name, description, message, photoUrl } }) => (

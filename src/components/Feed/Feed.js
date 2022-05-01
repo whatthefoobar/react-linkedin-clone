@@ -9,9 +9,12 @@ import EventNoteIcon from '@mui/icons-material/EventNote';
 import CalendarViewDayIcon from '@mui/icons-material/CalendarViewDay';
 import { db } from '../../firebase';
 import firebase from 'firebase/compat/app';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../features/userSlice';
 // import FlipMove from 'react-flip-move';
 
 const Feed = () => {
+  const user = useSelector(selectUser);
   const [input, setInput] = useState('');
   const [posts, setPosts] = useState([]);
 
@@ -31,10 +34,11 @@ const Feed = () => {
   const sendPost = (e) => {
     e.preventDefault();
     db.collection('posts').add({
-      name: 'Jane Doe',
-      description: 'this is a test',
+      //remove hardcoding here so that whoever logges in and comments their name shows up besides the comment
+      name: user.displayName,
+      description: user.email,
       message: input,
-      photoUrl: '',
+      photoUrl: user.photoUrl || '',
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     });
     setInput('');

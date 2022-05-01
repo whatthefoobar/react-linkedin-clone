@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 export const userSlice = createSlice({
   name: 'user',
@@ -12,7 +12,7 @@ export const userSlice = createSlice({
     },
 
     // Use the PayloadAction type to declare the contents of `action.payload`
-    logoutt: (state) => {
+    logout: (state) => {
       state.user = null;
     },
   },

@@ -7,6 +7,7 @@ Technologies used:
 - Redux for state management
 - Cloud Firestore for our remote database and Firebase authentication for login and register option
 - BEM system notation
+- Deployed with Forestore
 
 Struggles/Learning curve?
 

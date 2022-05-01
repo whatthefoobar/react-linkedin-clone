@@ -40,7 +40,7 @@ function Header() {
         <HeaderOption Icon={NotificationsIcon} title="Notifications" />
         <HeaderOption
           avatar={true}
-          title={user?.displayName}
+          title={user ? user.displayName : 'me'}
           onClick={logoutOfSite}
         />
       </div>

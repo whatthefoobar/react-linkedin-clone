@@ -11,7 +11,7 @@ import { db } from '../../firebase';
 import firebase from 'firebase/compat/app';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../features/userSlice';
-// import FlipMove from 'react-flip-move';
+import FlipMove from 'react-flip-move';
 
 const Feed = () => {
   const user = useSelector(selectUser);
@@ -79,16 +79,17 @@ const Feed = () => {
         photoUrl="https://www.whatsappimages.in/wp-content/uploads/2022/01/Girl-DP.jpg"
       />
       {/* Posts */}
-
-      {posts.map(({ id, data: { name, description, message, photoUrl } }) => (
-        <Post
-          key={id}
-          name={name}
-          description={description}
-          message={message}
-          photoUrl={photoUrl}
-        />
-      ))}
+      <FlipMove>
+        {posts.map(({ id, data: { name, description, message, photoUrl } }) => (
+          <Post
+            key={id}
+            name={name}
+            description={description}
+            message={message}
+            photoUrl={photoUrl}
+          />
+        ))}
+      </FlipMove>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { Avatar } from '@mui/material';
 import './Post.css';
 import InputOption from '../InputOption/InputOption';
@@ -7,9 +7,10 @@ import ChatIcon from '@mui/icons-material/Chat';
 import ShareIcon from '@mui/icons-material/Share';
 import SendIcon from '@mui/icons-material/Send';
 
-const Post = ({ name, description, message, photoUrl }) => {
+//useForwardRef for our anim lib FlipMove we will apply in our feed for all our posts
+const Post = forwardRef(({ name, description, message, photoUrl }, ref) => {
   return (
-    <div className="post">
+    <div ref={ref} className="post">
       <div className="post__header">
         <Avatar src={photoUrl}>{name[0]}</Avatar>
         <div className="post__info">
@@ -28,6 +29,6 @@ const Post = ({ name, description, message, photoUrl }) => {
       </div>
     </div>
   );
-};
+});
 
 export default Post;

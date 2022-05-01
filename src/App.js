@@ -14,8 +14,6 @@ function App() {
         <Feed />
         <Widgets />
       </div>
-      {/*2 Feed */}
-      {/*3 Widget -Right side */}
     </div>
   );
 }
